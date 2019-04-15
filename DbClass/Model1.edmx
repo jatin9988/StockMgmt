@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbStockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyname" Type="varchar" MaxLength="50" />
+          <Property Name="productname" Type="varchar" MaxLength="50" />
+          <Property Name="qty" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="total" Type="int" />
+          <Property Name="sdate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyname" Type="varchar" MaxLength="50" />
+          <Property Name="productname" Type="varchar" MaxLength="50" />
+          <Property Name="qty" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="total" Type="int" />
+          <Property Name="sdate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productname" Type="varchar" MaxLength="50" />
+          <Property Name="qty" Type="int" />
+        </EntityType>
+        <EntityContainer Name="dbStockModelStoreContainer">
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sale" EntityType="Self.sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbStockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="sdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="stock" Relationship="dbStockModel.stockproduct" FromRole="product" ToRole="stock" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qty" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="total" Type="Int32" />
+          <Property Name="sdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="qty" Type="Int32" />
+          <NavigationProperty Name="products" Relationship="dbStockModel.stockproduct" FromRole="stock" ToRole="product" />
+        </EntityType>
+        <EntityContainer Name="dbStockEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="sales" EntityType="Self.sale" />
+          <EntitySet Name="stocks" EntityType="Self.stock" />
+          <AssociationSet Name="stockproduct" Association="dbStockModel.stockproduct">
+            <End Role="stock" EntitySet="stocks" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="stockproduct">
+          <End Type="dbStockModel.stock" Role="stock" Multiplicity="1" />
+          <End Type="dbStockModel.product" Role="product" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbStockModelStoreContainer" CdmEntityContainer="dbStockEntities">
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="dbStockModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="sdate" ColumnName="sdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales">
+            <EntityTypeMapping TypeName="dbStockModel.sale">
+              <MappingFragment StoreEntitySet="sale">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="sdate" ColumnName="sdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stocks">
+            <EntityTypeMapping TypeName="dbStockModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
