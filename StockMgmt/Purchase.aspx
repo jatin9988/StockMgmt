@@ -53,9 +53,10 @@
 
 
                     <asp:Button ID="login" runat="server" Text="Purchase" class="btn submit" Name="btnPurchase" Height="55px" OnClick="login_Click"/>
+                    <br />
+					<h1 id="rs" runat="server"></h1>
 
-					
-						
+					<a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 					
 				</form>
 				

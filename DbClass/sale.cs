@@ -21,5 +21,7 @@ namespace DbClass
         public Nullable<int> price { get; set; }
         public Nullable<int> total { get; set; }
         public string sdate { get; set; }
+    
+        public virtual product product { get; set; }
     }
 }

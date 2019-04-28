@@ -9,10 +9,10 @@ namespace DbClass
    public class login
     {
         classDB obj = new classDB();
-
+        //global variable to get  the user name form the login class 
        public String Username { get; set; }
         public String Password { get; set; }
-
+        //this method is used to check the user name or password is correct or  wrong if it is true and then next page will be display if it is false then the error message will be display 
         public int logincheck() {
             String query = "select * from login where UserName='"+Username+"' and Password='"+Password+"' ";
             DataTable tb = new DataTable();

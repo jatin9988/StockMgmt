@@ -62,8 +62,8 @@
 				
 			</div>
 		</div>
-	
-
+	<h1 id="rs" runat="server"></h1>
+        <a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 
     </div>
 </asp:Content>

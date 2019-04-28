@@ -11,9 +11,9 @@
         <p class="lead" style="color:antiquewhite;">Best Stock Trades </p>
         <p><a href="#" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
-    <h2><%: Title %>.</h2>
-    <h1>Terms and Condition </h1>
-   <p>
+    <h2 style="font-size:50px;"><%: Title %>.</h2>
+ 
+   <p style="text-align:justify; color:white;">
 This document describes Cisco's Inventory and
 Reporting Tool Set ("Inventory Tool"), and the
 terms and conditions under which you ("you" or
@@ -60,4 +60,5 @@ obtain a copy of these General Terms and
 Conditions at
 
    </p>
+    <a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 </asp:Content>

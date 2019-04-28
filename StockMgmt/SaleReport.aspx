@@ -2,25 +2,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <br />
     <br />
-    <style>
-        .side {
-            padding-left:30px;
+    
 
+     <style>
+        .side {
+            padding-left:10px;
         }
+       
+        table, td,th {
+            border:1px solid grey;
+            padding:15px;
+            margin-right:10px;
+            text-align:center;
+        }
+
+
+   
 
     </style>
 	<div class="main-bg">
 		<!-- title -->
-		<h1>Purchase Area</h1>
+		<h1>Sale Area</h1>
         <h2 id="data" runat="server"></h2>
 		<!-- //title -->
 		<!-- content -->
 		<div class="sub-main-w3">
-			<div class="bg-content-w3pvt">
-				<div class="top-content-style">
-					<img src="images/user.jpg" alt="" />
-				</div>
-
+		
                 <asp:ListView ID="ListView1" runat="server" DataKeyNames="id" DataSourceID="SqlDataSource1">
                     <AlternatingItemTemplate>
                         <tr style="background-color: #FFFFFF;color: #284775;">
@@ -231,8 +238,8 @@
 
 
 			</div>
-		</div>
-	
+		
+	<a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 
 
     </div>

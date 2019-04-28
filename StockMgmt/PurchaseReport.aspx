@@ -5,8 +5,18 @@
     <br />
     <style>
         .side {
-            padding-left:30px;
+            padding-left:10px;
         }
+       
+        table, td,th {
+            border:1px solid grey;
+            padding:15px;
+            margin-right:10px;
+            text-align:center;
+        }
+
+
+   
 
     </style>
 	<div class="main-bg">
@@ -15,19 +25,17 @@
         <h2 id="data" runat="server"></h2>
 		<!-- //title -->
 		<!-- content -->
-		<div class="sub-main-w3">
-			<div class="bg-content-w3pvt"  style="border:1px solid red;width:500px;padding:10px;">
-				<div class="top-content-style">
-					<img src="images/user.jpg" alt="" />
-				</div>
+		<div class="sub-main-w3" >
+			
+				
 				<form>
 					<p class="legend">Purchase  details<span class="fa fa-hand-o-down"></span></p>
                     <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="id">
                         <AlternatingItemTemplate>
                             <tr style="background-color: #FFFFFF;color: #284775;">
                                 <td>
-                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" Class="btn btn-primary" />
+                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" Class="btn btn-primary" />
                                 </td>
                                 <td>
                                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -91,8 +99,8 @@
                         <InsertItemTemplate>
                             <tr style="">
                                 <td>
-                                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" Class="btn btn-primary" />
+                                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" Class="btn btn-primary"/>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
@@ -118,8 +126,8 @@
                         <ItemTemplate>
                             <tr style="background-color: #E0FFFF;color: #333333;">
                                 <td>
-                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" Class="btn btn-primary"/>
+                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" Class="btn btn-primary"/>
                                 </td>
                                 <td>
                                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -168,7 +176,7 @@
                                     <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
                                         <asp:DataPager ID="DataPager1" runat="server">
                                             <Fields>
-                                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                                <asp:NextPreviousPagerField ButtonType="Button"  ShowFirstPageButton="True" ShowLastPageButton="True" />
                                             </Fields>
                                         </asp:DataPager>
                                     </td>
@@ -178,8 +186,8 @@
                         <SelectedItemTemplate>
                             <tr style="background-color: #E2DED6;font-weight: bold;color: #333333;">
                                 <td>
-                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" Class="btn btn-primary" />
+                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" Class="btn btn-primary" />
                                 </td>
                                 <td>
                                     <asp:Label ID="idLabel" runat="server" Text='<%# Eval("id") %>' />
@@ -230,8 +238,8 @@
                     </asp:SqlDataSource>
 				
 			</div>
-		</div>
-	
+		
+	<a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 
 
     </div>

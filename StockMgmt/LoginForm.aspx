@@ -29,7 +29,7 @@
 	<div class="main-bg">
 		<!-- title -->
 		<h1>Latest Login Form</h1>
-        <h2 id="data" runat="server"></h2>
+        <h2 id="data" runat="server" style="font-size:30px;color:white;text-align:center;"></h2>
 		<!-- //title -->
 		<!-- content -->
 		<div class="sub-main-w3">
@@ -58,6 +58,7 @@
 				
 			</div>
 		</div>
+        <a href="AdminArea.aspx" class="btn btn-warning">Back to Dashboard</a>	
 		<!-- //content -->
 		<!-- copyright -->
 		<div class="copyright">

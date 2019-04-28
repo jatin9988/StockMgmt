@@ -11,7 +11,7 @@
     </div>
 
     
-<div class="row">
+<div class="row" style="color:white;">
         <div class="col-md-4">
             <h2>Stock</h2>
             <img src="images/stk.jpg" class="thumbnail" style="border:1px solid red;height:400px" />

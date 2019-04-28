@@ -58,7 +58,7 @@
           <Property Name="price" Type="Int32" />
           <Property Name="total" Type="Int32" />
           <Property Name="sdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="stock" Relationship="dbStockModel.stockproduct" FromRole="product" ToRole="stock" />
+          <NavigationProperty Name="sales" Relationship="dbStockModel.productsale" FromRole="product" ToRole="sale" />
         </EntityType>
         <EntityType Name="sale">
           <Key>
@@ -71,6 +71,7 @@
           <Property Name="price" Type="Int32" />
           <Property Name="total" Type="Int32" />
           <Property Name="sdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="product" Relationship="dbStockModel.productsale" FromRole="sale" ToRole="product" />
         </EntityType>
         <EntityType Name="stock">
           <Key>
@@ -79,20 +80,19 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="qty" Type="Int32" />
-          <NavigationProperty Name="products" Relationship="dbStockModel.stockproduct" FromRole="stock" ToRole="product" />
         </EntityType>
         <EntityContainer Name="dbStockEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="sales" EntityType="Self.sale" />
           <EntitySet Name="stocks" EntityType="Self.stock" />
-          <AssociationSet Name="stockproduct" Association="dbStockModel.stockproduct">
-            <End Role="stock" EntitySet="stocks" />
+          <AssociationSet Name="productsale" Association="dbStockModel.productsale">
             <End Role="product" EntitySet="products" />
+            <End Role="sale" EntitySet="sales" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="stockproduct">
-          <End Type="dbStockModel.stock" Role="stock" Multiplicity="1" />
-          <End Type="dbStockModel.product" Role="product" Multiplicity="*" />
+        <Association Name="productsale">
+          <End Type="dbStockModel.product" Role="product" Multiplicity="1" />
+          <End Type="dbStockModel.sale" Role="sale" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

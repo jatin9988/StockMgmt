@@ -14,6 +14,12 @@ namespace DbClass
     
     public partial class product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public product()
+        {
+            this.sales = new HashSet<sale>();
+        }
+    
         public int id { get; set; }
         public string companyname { get; set; }
         public string productname { get; set; }
@@ -22,6 +28,7 @@ namespace DbClass
         public Nullable<int> total { get; set; }
         public string sdate { get; set; }
     
-        public virtual stock stock { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<sale> sales { get; set; }
     }
 }
